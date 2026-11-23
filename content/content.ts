@@ -609,11 +609,10 @@ const sketch = (file: string, title: string): SketchPage => ({
 export const sketchbook: SketchPage[] = [
   sketch("durham-01", "Procession on the Old Wood Path"),
   sketch("durham-02", "The Cathedral Glowing Red"),
+  sketch("durham-05", "Cathedral from the Riverside"),
   sketch("durham-03", "Durham Castle Above the River"),
   sketch("durham-04", "Durham Cathedral"),
-  sketch("durham-05", "Cathedral from the Riverside"),
 ];
-
 export const photography: Pic[] = Array.from({ length: 9 }, (_, i) =>
   pic(`/work/photography/photo-0${i + 1}.jpg`)
 );
@@ -702,6 +701,5 @@ export const treehacksCards = {
     card("king-diamonds", "King of Diamonds"),
   ],
 };
-
 
 
