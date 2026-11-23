@@ -117,7 +117,6 @@ export default function Sketchbook({ pages }: { pages: SketchPage[] }) {
       // (back from a project, nav from /about) must not replay it
       if (
         sessionStorage.getItem("sb-intro-done") === "1" ||
-        mobileRef.current ||
         matchMedia("(prefers-reduced-motion: reduce)").matches
       ) {
         setCurrent(home);
