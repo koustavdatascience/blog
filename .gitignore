@@ -9,3 +9,11 @@ next-env.d.ts
 
 # font source folder (EULA'd download; app/fonts holds the used files)
 PP Mori - Free for Personal Use v2.6/
+
+# Windows-illegal filename from original repo
+public/work/sketchbook/abandoned*
+public/work/sketchbook/1.png
+public/work/sketchbook/2.png
+public/work/sketchbook/3.png
+public/work/sketchbook/4.png
+public/work/sketchbook/5.png

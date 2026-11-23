@@ -90,16 +90,17 @@ export default function Sketchbook({ pages }: { pages: SketchPage[] }) {
   }, []);
   const q = mobile ? 50 : undefined; // next/image default (75) on desktop
 
-  // riffle sequence: one full loop around the book plus the run-in to the
+  // riffle sequence: three full loops around the book plus the run-in to the
   // home spread, easing in, whirring through the middle, easing out to land
   const seqRef = useRef<{ from: number; to: number; dur: number; bell: number }[]>([]);
   const seqIdx = useRef(0);
   const buildSeq = () => {
-    const total = len + home; // 0 → … → 0 (full loop) → … → home
+    const loops = 3; // number of full passes through the book
+    const total = len * loops + home;
     return Array.from({ length: total }, (_, s) => {
       const t = total <= 1 ? 1 : s / (total - 1);
       const bell = Math.sin(Math.PI * t); // 0 at the ends, 1 in the middle
-      return { from: s % len, to: (s + 1) % len, dur: 0.2 - 0.15 * bell, bell };
+      return { from: s % len, to: (s + 1) % len, dur: 0.45 - 0.35 * bell, bell };
     });
   };
 

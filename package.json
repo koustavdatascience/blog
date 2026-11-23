@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue; next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "clean": "Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue"
   },
   "dependencies": {
     "next": "^15.3.0",

@@ -30,17 +30,8 @@ export default function SiteNav({
       </Link>
       <nav>
         <a href="/#projects" onClick={jumpProjects} aria-current={active === "work" ? "page" : undefined}>
-          {site.nav.work}
+          blog
         </a>
-        <Link href="/play" aria-current={active === "play" ? "page" : undefined}>
-          {site.nav.play}
-        </Link>
-        <Link href="/about" aria-current={active === "about" ? "page" : undefined}>
-          about
-        </Link>
-        <Link href="/inspiration" aria-current={active === "inspiration" ? "page" : undefined}>
-          {site.nav.inspiration}
-        </Link>
         <div className="top-socials">
           {about.socials.map((b) => (
             <a

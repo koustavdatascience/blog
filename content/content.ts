@@ -15,11 +15,11 @@ export const pic = (src: string): Pic => {
 
 // ---------- site chrome (every visible string is editable here) ----------
 export const site = {
-  name: "Matthew Yu",
-  footer: "© Matthew Yu 2026",
+  name: "Arif",
+  footer: "© Arif 2026",
   nav: { work: "work", play: "play", inspiration: "inspiration" },
   labels: {
-    projects: "Projects",
+    projects: "Blog",
     art: "Art",
     sketchbook: "Sketchbook",
     photography: "Photography",
@@ -29,29 +29,126 @@ export const site = {
 
 // ---------- about ----------
 export const about = {
-  eyebrow: "DESIGNER / ENGINEER / ARTIST / STUDENT @ STANFORD",
+  eyebrow: "MBA STUDENT @ DURHAM UNIVERSITY",
   headshot: pic("/headshot.jpg"),
-  // paragraph segments; segments with href render as bolded links
   bio: [
-    { text: "Matthew Yu is currently a CS and Design student at Stanford. His work spans technology, design, and storytelling, and he combines these skills to create projects and media that have been featured by " },
-    { text: "i-D magazine", href: "https://www.instagram.com/p/DZHyVkMCP73/?img_index=3" },
-    { text: ", the MET Museum, KAWS, NASA Artemis, International Society of Automation, and the National Foundation for Advancement in the Arts. He was also selected as one of " },
-    { text: "20 U.S. Presidential Scholars in the Arts in 2025", href: "https://youngarts.org/press-releases/youngarts-announces-the-2025-u-s-presidential-scholars-in-the-arts/" },
-    { text: ". He has lectured for " },
-    { text: "CS148: Introduction to Computer Graphics and Imaging", href: "https://web.stanford.edu/class/cs148/lectures.html" },
-    { text: " at Stanford, and is a Figma Campus Leader this year. Through his creative work, he has reached an online audience of " },
-    { text: "50k+ and 45M+ views", href: "https://www.instagram.com/matthewyuart/" },
-    { text: "." },
+    { text: "Arif is a student at Durham University." },
   ] as { text: string; href?: string }[],
   socials: [
-    { type: "instagram", label: "Instagram", href: "https://www.instagram.com/matthewyuart/" },
-    { type: "x", label: "X", href: "https://x.com/matthewyuart" },
-    { type: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/matthew-yu2029/" },
-    { type: "email", label: "Email", href: "mailto:mattyu@stanford.edu" },
+    { type: "instagram", label: "Instagram", href: "https://www.instagram.com/_im_arif/" },
   ] as { type: "instagram" | "x" | "linkedin" | "email"; label: string; href: string }[],
 };
 
-// ---------- projects (order matches the original site) ----------
+// ---------- blog posts ----------
+export type PostBlock =
+  | { type: "text"; content: string }
+  | { type: "image"; src: string; alt: string; caption?: string }
+  | { type: "image-trio"; images: { src: string; alt: string; caption?: string }[] };
+
+export type Post = {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  coverImage?: string;
+  coverImageAlt?: string;
+  body: PostBlock[];
+};
+
+export const posts: Post[] = [
+  {
+    slug: "why-i-chose-durham",
+    title: "Why I Chose Durham",
+    date: "Student Life / Durham · The Autumn Edition",
+    excerpt: "A new chapter shaped by dreams, curiosity and the chance to enter a new world.",
+    body: [
+      {
+        type: "image-trio",
+        images: [
+          { src: "/blog/photo-4.jpg", alt: "Walking Home", caption: "Walking Home — Gold leaves and a lamp already on for me." },
+          { src: "/blog/photo-5.jpg", alt: "High Ground", caption: "High Ground — The castle above the river on a good blue day." },
+          { src: "/blog/photo-6.jpg", alt: "Looking Up", caption: "Looking Up — Stone, sky and a rose window I keep tilting my head for." },
+        ],
+      },
+      {
+        type: "text",
+        content: "Choosing a university is not just about a degree. It is about the people you meet, the friends you make and the place you call home for a while. It is where you discover what you are truly capable of. When I began considering an MBA in the UK, I wanted a programme that would challenge my thinking and move my career forward. Durham felt like a place where those ambitions could grow.",
+      },
+      {
+        type: "text",
+        content: "I did not arrive with a perfect checklist. I arrived with questions. Would I be pushed? Would I belong? Could a small city on a bend in the river give me room to think big? The more I pictured myself here, the more those questions softened into a quiet kind of certainty. This is how that happened, told in stone, river light and a handful of good reasons.",
+      },
+      {
+        type: "image-trio",
+        images: [
+          { src: "/blog/photo-1.jpg", alt: "By the Boathouse", caption: "A quiet corner of the Wear, cathedral just over the trees." },
+          { src: "/blog/photo-2.jpg", alt: "After Dark", caption: "After Dark — The cathedral in red, and me standing still for it." },
+          { src: "/blog/photo-3.jpg", alt: "Half-Remembered", caption: "Half-Remembered — Rain turned the cathedral into a memory before I'd left." },
+        ],
+      },
+      {
+        type: "text",
+        content: "Durham's appeal is hard to separate from its history. The cathedral, castle, riverside paths and old streets feel like a time capsule, while the university fills this compact, walkable city with an international community. It felt like the right balance: a peaceful place to focus, with plenty happening around it.",
+      },
+      {
+        type: "text",
+        content: "Walk ten minutes in almost any direction and the scenery changes its mind. A cobbled lane gives way to a riverside path, a bridge opens onto a view of the cathedral, a bend in the Wear brings the castle back into frame from a new angle. The cathedral and castle share UNESCO World Heritage status, and you feel it — not as a museum piece but as the backdrop to ordinary days.",
+      },
+      {
+        type: "text",
+        content: "What I love most is how the two halves of Durham coexist. History sets the stage, and the university fills it with life: bikes along the river, gowns on cold mornings, a dozen accents in a single queue. For someone who wants to focus, it is ideal. Nothing is far away, and nothing is rushed.",
+      },
+      {
+        type: "text",
+        content: "With a background in business, operations and podcasting, I wanted an MBA that would broaden my perspective and prepare me for the real world of business. I wanted to learn how people with different viewpoints work towards a common goal. Podcasting is a lesson in listening. Operations is a lesson in getting many moving parts to pull in the same direction. An MBA sits right where those two meet.",
+      },
+      {
+        type: "text",
+        content: "Durham's collegiate system, which only a handful of universities still follow, offers exactly that. Where else would I make friends with engineers and astrophysics PhDs? Every college is a small community inside a much larger university: shared meals, common rooms, a place where you are known by name. Your college becomes your home, and its people become your family.",
+      },
+      {
+        type: "text",
+        content: "Studying abroad means adapting to a new place, new routines and people whose lives may be very different from mine. Those adjustments are challenging, but valuable. I want to make the most of every conversation, friendship and everyday discovery. These moments teach confidence and independence as much as any lecture.",
+      },
+      {
+        type: "text",
+        content: "It is a quiet series of firsts: a new kitchen, a new commute, a new way of asking for things. Some days will feel effortless and others will feel a long way from home, and I am learning to treat both as part of the same education. The lectures will hand me frameworks. The in-between moments — a long walk in the rain or a chat that runs past closing time — will teach me how to carry them.",
+      },
+      {
+        type: "image-trio",
+        images: [
+          { src: "/blog/photo-7.jpg", alt: "Hush", caption: "Hush — The cloisters, where I lower my voice without trying." },
+          { src: "/blog/photo-8.jpg", alt: "Gowns & Leaves", caption: "Gowns & Leaves — Walking in black, through every shade of copper." },
+          { src: "/blog/photo-9.jpg", alt: "Bench Weather", caption: "Bench Weather — My favourite view so far, cathedral across the water." },
+        ],
+      },
+      {
+        type: "text",
+        content: "Some places are remembered as a skyline. Durham is remembered in textures. Stone: warm sandstone that turns to gold the moment the clouds break. Water: the Wear, slow and glassy, the best mirror in town. Green: trees leaning over every path, turning copper in autumn. Quiet: cloisters where the whole city seems to lower its voice. Black: gowns and umbrellas winding up a wet woodland path. Red: the cathedral tower, glowing after dark.",
+      },
+      {
+        type: "text",
+        content: "Durham's scale makes it easy to slow down, notice details and find small moments of inspiration between busy days. I hope to explore beyond campus, discover its traditions, build a routine that feels like mine, and let Durham surprise me every day. I did not choose Durham because it was the loudest option. I chose it because it felt like the place where I could be both focused and curious, challenged and at home. The rest is for me to write.",
+      },
+      {
+        type: "text",
+        content: "See you on the riverbank. — Mohammad Arif Shaik · MBA, Durham",
+      },
+    ],
+  },
+];
+
+// homeRows is kept as a type alias so layout.tsx doesn't break —
+// it now points at posts instead of projects.
+export type Row = { href: string; title: string; date: string; excerpt: string };
+
+export const homeRows: Row[] = posts.map((p) => ({
+  href: `/blog/${p.slug}`,
+  title: p.title,
+  date: p.date,
+  excerpt: p.excerpt,
+}));
+// ---------- keep Project type for play pages (unchanged) ----------
 export type Project = {
   slug: string;
   title: string;
@@ -60,24 +157,18 @@ export type Project = {
   body: string[];
   list?: string[];
   images: Pic[];
-  // case-study sections rendered after the intro — edit the writing here
   study?: { heading: string; body: string[] }[];
   links?: { label: string; href: string }[];
-  // X post(s) embedded in the article (video posts keep audio); the first
-  // replaces the hero image, any others render after the last section.
-  // images[0] still supplies the home-card thumbnail
   tweet?: string | string[];
-  // home-card cover; falls back to images[0] when absent
   cover?: Pic;
-  // shown in the opened card's meta grid
   stack?: string;
-  // collaborators, shown as "With" in the meta grid
   team?: string;
 };
 
 const imgs = (slug: string, n: number) =>
   Array.from({ length: n }, (_, i) => pic(`/work/projects/${slug}/0${i + 1}.jpg`));
 
+// old projects array kept minimal so play pages still resolve
 export const projects: Project[] = [
   {
     slug: "treehacks",
@@ -516,15 +607,11 @@ const sketch = (file: string, title: string): SketchPage => ({
 });
 
 export const sketchbook: SketchPage[] = [
-  sketch("osaka castle", "Osaka Castle"),
-  sketch("shibuya crossing", "Shibuya Crossing"),
-  sketch("tokyo tower", "Tokyo Tower"),
-  sketch("todai ji", "Tōdai-ji"),
-  sketch("gion kyoto", "Gion, Kyoto"),
-  sketch("kamakura", "Kamakura"),
-  sketch("taipei", "Taipei"),
-  sketch("abandoned car : taipei street", "Abandoned Car, Taipei Street"),
-  sketch("stanford", "Stanford"),
+  sketch("durham-01", "Procession on the Old Wood Path"),
+  sketch("durham-02", "The Cathedral Glowing Red"),
+  sketch("durham-04", "Durham Cathedral"),
+  sketch("durham-03", "Durham Castle Above the River"),
+  sketch("durham-05", "Cathedral from the Riverside"),
 ];
 
 export const photography: Pic[] = Array.from({ length: 9 }, (_, i) =>
@@ -616,33 +703,5 @@ export const treehacksCards = {
   ],
 };
 
-// the home page is the DESIGN portfolio: rem, oscillon (opens its app
-// directly), gesturewatcher, logo drawer, then the earlier design work.
-// A card plays a screen recording whenever public/work/reels/<name>.mp4
-// exists (name = last segment of href) — drop a file in, it appears.
-export type Row = { href: string; title: string; year: string; tag: string; thumb: Pic; aspect?: number };
-const rowOf = (slug: string, aspect?: number): Row => {
-  const p = projects.find((x) => x.slug === slug)!;
-  return {
-    href: `/work/${p.slug}`,
-    title: p.title,
-    year: p.year,
-    tag: p.tag,
-    thumb: p.cover ?? p.images[0],
-    aspect,
-  };
-};
 
-// order matches Matthew's reference layout: two staggered columns,
-// consistent width, height varies per tile. First four fill the left
-// column, the rest the right. `aspect` overrides a tile's crop.
-export const homeRows: Row[] = [
-  rowOf("gesturewatcher", 2.0),
-  rowOf("ratestartups", 2.0),
-  rowOf("treehacks", 2.0),
-  rowOf("canopycoffee"),
-  rowOf("cosign"),
-  rowOf("stanfordshirt"),
-  rowOf("rem"),
-  { ...oscillonRow, aspect: 1.6 }, // launches the app
-];
+
